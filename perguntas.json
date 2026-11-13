@@ -1,0 +1,105 @@
+{
+  "observacao": "Preencha pergunta, respostaCorreta e respostasIncorretas com o conteúdo real de cada ID. Não foram inventados enunciados.",
+  "perguntas": [
+    {
+      "id": 18926,
+      "pergunta": "Onde se passa a história de 'IT', de Stephen King?",
+      "respostaCorreta": "Derry",
+      "respostasIncorretas": [
+        "Castle Rock",
+        "Nova York",
+        "Salem"
+      ]
+    },
+    {
+      "id": 8379,
+      "pergunta": "Qual é o nome do autor da série de livros 'Percy Jackson'?",
+      "respostaCorreta": "Rick Riordan",
+      "respostasIncorretas": [
+        "J. K. Rowling",
+        "C. S. Lewis",
+        "J. R. R. Tolkien"
+      ]
+    },
+    {
+      "id": 8309,
+      "pergunta": "Qual autor escreveu 'O Manifesto Comunista' em parceria com Karl Marx?",
+      "respostaCorreta": "Friedrich Engels",
+      "respostasIncorretas": [
+        "Vladimir Lenin",
+        "Adam Smith",
+        "Max Weber"
+      ]
+    },
+    {
+      "id": 7875,
+      "pergunta": "Em 'Alice no País das Maravilhas', qual é o nome da gatinha de Alice?",
+      "respostaCorreta": "Dinah (Diná)",
+      "respostasIncorretas": [
+        "Marie",
+        "Cheshire",
+        "Duchess (Duquesa)"
+      ]
+    },
+    {
+      "id": 6860,
+      "pergunta": "",
+      "respostaCorreta": "",
+      "respostasIncorretas": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 5740,
+      "pergunta": "",
+      "respostaCorreta": "",
+      "respostasIncorretas": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 5031,
+      "pergunta": "",
+      "respostaCorreta": "",
+      "respostasIncorretas": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 4702,
+      "pergunta": "",
+      "respostaCorreta": "",
+      "respostasIncorretas": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 4470,
+      "pergunta": "",
+      "respostaCorreta": "",
+      "respostasIncorretas": [
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 2564,
+      "pergunta": "",
+      "respostaCorreta": "",
+      "respostasIncorretas": [
+        "",
+        "",
+        ""
+      ]
+    }
+  ]
+}

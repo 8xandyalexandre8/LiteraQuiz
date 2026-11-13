@@ -1,0 +1,248 @@
+/*
+  LITERAQUIZ — FOLHA DE ESTILOS
+
+  PERSONALIZE os itens abaixo quando quiser:
+  - Cores: substitua os valores das variáveis.
+  - Fontes: altere --fonte-titulo e --fonte-texto.
+  - Tamanhos: altere os valores de font-size.
+  - Imagem de fundo: coloque o caminho do arquivo em background-image.
+  As variáveis já possuem valores iniciais para que o jogo funcione imediatamente.
+*/
+
+:root {
+  --cor-fundo: #10172a;             /* PERSONALIZAR: cor do fundo */
+  --cor-painel: #1b2742;            /* PERSONALIZAR: cor do painel */
+  --cor-texto: #f4f6ff;             /* PERSONALIZAR: cor do texto */
+  --cor-destaque: #bb1c1c;          /* PERSONALIZAR: cor do título/destaque */
+  --cor-botao: #263d68;             /* PERSONALIZAR: cor dos botões */
+  --cor-botao-hover: #34558b;       /* PERSONALIZAR: cor do botão ao passar o mouse */
+  --cor-borda: #9b1818;             /* PERSONALIZAR: cor da borda dos botões */
+  --cor-correta: #237a57;
+  --cor-incorreta: #a83c4b;
+  --fonte-titulo: Georgia, serif;   /* PERSONALIZAR: fonte do título */
+  --fonte-texto: Arial, sans-serif; /* PERSONALIZAR: fonte das perguntas e alternativas */
+  --tamanho-titulo: 4rem;           /* PERSONALIZAR: tamanho do título */
+  --tamanho-pergunta: 1.45rem;      /* PERSONALIZAR: tamanho da pergunta */
+  --tamanho-alternativa: 1rem;      /* PERSONALIZAR: tamanho das alternativas */
+  --imagem-fundo: none;             /* PERSONALIZAR: ex.: url("imagens/fundo.jpg") */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 28px 16px;
+  color: var(--cor-texto);
+  font-family: var(--fonte-texto);
+  background-color: var(--cor-fundo);
+  /* A imagem se repete até preencher a página. */
+  background-image: url(https://www.meionews.com/uploads/imagens/2020/6/1/silvio-santos-careca-ator-enterrado-vivo-leia-lendas-urbanas-da-tv-a513641f-3a91-4a3e-88f8-e1e2124a9e55.jpg);
+  background-repeat: repeat;
+  background-position: top left;
+}
+
+.game-container {
+  width: min(100%, 850px);
+  margin: 0 auto;
+}
+
+.game-header {
+  text-align: center;
+  margin: 12px 0 28px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--cor-destaque);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+h1 {
+  margin: 0;
+  color: var(--cor-destaque);
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-titulo);
+  line-height: 1.1;
+}
+
+.subtitle {
+  margin: 12px 0 0;
+  font-size: 1rem;
+  opacity: 0.88;
+}
+
+.quiz-panel {
+  padding: clamp(20px, 5vw, 38px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 20px;
+  background: var(--cor-painel);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+}
+
+.progress-area {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.progress-track {
+  height: 8px;
+  margin: 13px 0 22px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.progress-bar {
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--cor-destaque);
+  transition: width 250ms ease;
+}
+
+.status {
+  min-height: 1.3em;
+  margin: 0 0 12px;
+  color: var(--cor-destaque);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.question {
+  margin: 0 0 24px;
+  color: var(--cor-texto);
+  font-family: var(--fonte-titulo);
+  font-size: var(--tamanho-pergunta);
+  line-height: 1.45;
+}
+
+.answers-grid {
+  display: grid;
+  /* Duas colunas = duas fileiras quando houver quatro alternativas. */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.answer-button,
+.restart-button {
+  min-height: 68px;
+  padding: 14px 16px;
+  border: 2px solid var(--cor-borda);
+  border-radius: 12px;
+  color: var(--cor-texto);
+  background: var(--cor-botao);
+  font: inherit;
+  font-size: var(--tamanho-alternativa);
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    border-width 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+/* Efeito de borda animada nas alternativas */
+.answer-button:hover:not(:disabled) {
+  background: var(--cor-botao-hover);
+  animation: pulsar-borda 900ms ease-in-out infinite;
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 3px rgba(242, 193, 78, 0.14);
+}
+
+/* Animação de expansão e contração da borda */
+@keyframes pulsar-borda {
+  0%, 100% {
+      border-width: 2px;
+  }
+
+  50% {
+      border-width: 5px;
+  }
+}
+
+/* Respeita a preferência por movimentos reduzidos */
+@media (prefers-reduced-motion: reduce) {
+  .answer-button:hover:not(:disabled) {
+      animation: none;
+      border-width: 4px;
+  }
+}
+
+.answer-button:focus-visible,
+.restart-button:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 3px;
+}
+
+.answer-button:disabled {
+  cursor: default;
+  opacity: 0.88;
+}
+
+.answer-button.correct {
+  border-color: #8be0b6;
+  background: var(--cor-correta);
+}
+
+.answer-button.incorrect {
+  border-color: #ff9ba5;
+  background: var(--cor-incorreta);
+}
+
+.feedback {
+  min-height: 1.5em;
+  margin: 18px 0 0;
+  font-weight: 700;
+  text-align: center;
+}
+
+.restart-button {
+  display: block;
+  min-height: 48px;
+  margin: 20px auto 0;
+  padding-inline: 26px;
+}
+
+.restart-button[hidden] {
+  display: none;
+}
+
+.game-footer {
+  margin: 20px 0 0;
+  color: rgba(244, 246, 255, 0.7);
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+/* Em telas estreitas, as alternativas ficam uma abaixo da outra. */
+@media (max-width: 560px) {
+  body {
+    padding: 18px 12px;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 12vw, var(--tamanho-titulo));
+  }
+
+  .answers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .answer-button {
+    min-height: 58px;
+    text-align: left;
+  }
+
+  .progress-area {
+    font-size: 0.8rem;
+  }
+}

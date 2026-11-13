@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LiteraQuiz — um desafio de conhecimentos sobre livros e literatura.">
+  <title>LiteraQuiz</title>
+  <!-- Ícone exibido na aba do navegador -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <!-- defer faz o JavaScript carregar depois que o HTML for interpretado -->
+  <!-- O banco local perguntas.json é carregado pelo script.js -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="game-container">
+    <header class="game-header">
+      <p class="eyebrow">DESAFIO DE CONHECIMENTOS</p>
+      <h1>LiteraQuiz</h1>
+      <p class="subtitle">Teste seus conhecimentos sobre livros e literatura.</p>
+    </header>
+
+    <section class="quiz-panel" aria-live="polite">
+      <div class="progress-area">
+        <span id="question-counter">Pergunta 0 de 10</span>
+        <span id="score">Acertos: 0</span>
+      </div>
+      <div class="progress-track" aria-hidden="true">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+
+      <p id="status" class="status" role="status">Preparando as perguntas...</p>
+      <h2 id="question" class="question">Carregando pergunta</h2>
+
+      <!-- As alternativas são criadas pelo JavaScript -->
+      <div id="answers" class="answers-grid"></div>
+
+      <p id="feedback" class="feedback" role="status"></p>
+      <button id="restart-button" class="restart-button" type="button" hidden>
+        Jogar novamente
+      </button>
+    </section>
+
+    <footer class="game-footer">
+      <p>Perguntas fornecidas por uma base derivada da Open Trivia Database.</p>
+    </footer>
+  </main>
+</body>
+</html>
